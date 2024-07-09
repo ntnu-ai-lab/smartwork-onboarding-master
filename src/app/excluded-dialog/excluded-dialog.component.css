@@ -1,0 +1,14 @@
+.message {
+  margin: auto;
+  max-width: 500px;
+}
+
+p {font-size: x-large; text-align: center;
+}
+
+h1{text-align: center; text-decoration: underline; text-decoration-color: blue}
+
+.mat-toolbar {
+  background: white;
+  color: #fff;
+}

@@ -1,0 +1,123 @@
+[
+  {
+    "id": "InclusionAge",
+    "question": "Er du mellom 20 og 60 år?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "no"
+  },
+  {
+    "id": "InclusionPain",
+    "question": "Er muskel og skjelettplager hovedgrunnen til at du er sykmeldt?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "no"
+  },
+  {
+    "id": "InclusionDoctor",
+    "question": "(Hvis JA på forrige spørsmål) Har disse plagene vært vurdert av fastlege eller annen lege?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "yes"
+  },
+  
+  {
+    "id": "InclusionNorwegian",
+    "question": "Forstår du norsk både muntlig og skriftlig, og kan skrive på norsk?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "no"
+  },
+  {
+    "id": "InclusionEmployer",
+    "question": "Har du en arbeidsgiver?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "no"
+  },
+  {
+    "id": "InclusionSmartphone",
+    "question": "Har du en smarttelefon (kan laste ned apper)?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "no"
+  },
+  {
+    "id": "InclusionPregnancy",
+    "question": "Er du gravid eller har plager relatert til graviditet?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "yes"
+  },
+  {
+    "id": "InclusionSickleave",
+    "question": "Planlegger du full retur til arbeid neste uke (dvs. avslutte sykefravær)?",
+    "answers": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nei"
+      }
+    ],
+    "exclusionOn": "yes"
+  }
+]

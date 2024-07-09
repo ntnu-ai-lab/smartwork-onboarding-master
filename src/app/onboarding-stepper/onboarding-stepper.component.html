@@ -1,0 +1,188 @@
+<div class="container">
+<mat-toolbar>
+  <span><br>
+    <br>
+    <img style="float: right; margin: 0px 0px 15px 15px;" src="assets/images/smartwork_logo.png"  width="150" />
+    <img style="float: right; margin: 0px 0px 15px 15px;" src="assets/images/logo_ntnu.png"   width="150" />
+  </span>
+</mat-toolbar>
+<br>
+<br>
+<mat-stepper
+  class="example-stepper"
+  linear="true"
+  [orientation]="(stepperOrientation | async)!" #stepper>
+
+  <mat-step label="Informasjon">
+  <!--<mat-step label="Informasjon" [completed]="employee !== undefined">--> <!--Anuja-->
+    <h2>Invitasjon til deltakelse i forskningsprosjektet SmaRTWork ved NTNU</h2>
+    <!--<iframe width="420" height="345" src="https://www.youtube.com/embed/eikogKiRwls"> </iframe>-->
+    
+    <p>SmaRTWork er et prosjekt som utføres av NTNU i samarbeid med NAV og er finansiert av Norges forskningsråd. Målet med prosjektet er å utvikle og evaluere en mobilapp som gir persontilpassede anbefalinger til personer som er sykmeldt for muskel- og skjelettplager (ryggsmerter, nakkesmerter eller mer utbredte muskelsmerter). Appen gir persontilpassede treningsøvelser, råd om fysisk aktivitet og undervisningsmateriale om muskel- og skjelettplager, det å være sykmeldt og prosessen tilbake til arbeid. Målet med appen er å øke brukerens muligheter til egenmestring av muskel- og skjelettplager og fremme bærekraftig retur til arbeid etter sykmelding. </p>
+    <p>Ved å trykke "Neste" vil du få noen spørsmål som avgjør om studien passer til deg. Deretter kommer du til en side med mer detaljert informasjon og hvor du kan samtykke til deltakelse. Hvis du samtykker vil du bli oppringt av en prosjektmedarbeider som kan svare på spørsmål du har og sikre at studien passer til deg. Du kan når som helst trekke din deltakelse i studien uten å oppgi noen grunn.
+    <p class ='small-text'>Du kan lese mer om prosjektet på <a href="https://smartwork.no/" target="_blank" rel="noopener noreferrer">SmaRTWork</a>.
+     </p>
+ 
+      
+
+    <!--<div ng-app="myApp"
+         ng-controller="myController">
+      <p>Velg legen du har fått time hos:
+      <select ng-model="employee"  ng-options="clinicID" (change) ="onChangeClinician($event)" >
+        <option selected="selected">---- Velg ----</option>
+        <option *ngFor="let clinician of cliniciansInClinic" [value]="clinician.clinicianID" >
+          {{clinician.firstname}} {{clinician.lastname}}
+        </option>
+      </select>
+      </p>
+    </div>
+    <p> Din Klinikk er: <b>{{this.clinicName}}</b></p>
+    <br>
+    <br> -->
+
+    <!--<button mat-raised-button matStepperNext class="form-control" [disabled]="!employee" color="primary">Neste</button>-->    <!--Anuja-->
+    <button mat-raised-button matStepperNext class="form-control" color="primary">Neste</button>
+  </mat-step>
+
+  <!--<section class="nav-buttons">
+        <button mat-raised-button matStepperNext color="primary">Neste</button>
+     </section>
+   </mat-step>-->
+
+  <mat-step  label="Inklusjonskriterier" [completed]="formInclusion.valid && formInclusionCompleted"> 
+ <!--[stepControl]="formInclusion"-->
+    {{formInclusion.errors?.message}}
+    <form [formGroup]="formInclusion">
+      <h2>Studien har flere kriterier som avgjør om du kan være med som deltager. Svar nedenfor på spørsmålene som avgjør
+        om du passer som deltager i studien.</h2>
+      <mat-list *ngFor="let q of inclusionQuestions">
+        <mat-label class="inclusion-question">{{q.question}}</mat-label>
+        <mat-list-item>
+          <span *ngFor="let a of q.answers">
+            <input class='radio-button' type="radio" [formControlName]="q.id" [value]="a.value" id="inclusion_{{q.id}}.{{a.value}}"
+                   required/>
+            <label for="inclusion_{{q.id}}.{{a.value}}">{{a.label}}</label>
+          </span>
+        </mat-list-item>
+      </mat-list>
+      <section class="nav-buttons">
+        <button mat-raised-button matStepperPrevious color="primary">Tilbake</button>
+        <button mat-raised-button [disabled]="!formInclusion.valid" (click)="onSubmitInclusion()"
+                color="primary">Neste
+        </button>
+      </section>
+    </form>
+
+  </mat-step>
+  <mat-step label="Pasientinformasjon">
+    <p>Du kan delta i studien. Nedenfor finner du informasjon om studien, les den og trykk Neste for å svare på om du vil delta eller ikke i studien.</p>
+    <p>Vil du delta i forskningsprosjektet: <strong> SMARTWORK - ET DIGITALT SYSTEM FOR PERSONTILPASSEDE ANBEFALINGER FOR SYKMELDTE MED MUSKEL- OG SKJELETTPLAGER? </strong></p>
+    <h2>Formålet med prosjektet og hvorfor du blir spurt</h2>
+    <p>Dette er et spørsmål til deg om å delta i et forskningsprosjekt hvor vi ønsker å undersøke om en mobilapplikasjon ("SmaRTWork") kan være nyttig for personer som er sykmeldt på grunn av muskel- og skjelettplager. Målet med SmaRTWork appen er å hjelpe deg med å håndtere plagene dine bedre og gi deg relevant informasjon som kan gjøre det lettere for deg å komme tilbake til jobb. Appen er ment å være et ekstra verktøy i tillegg til den oppfølgingen du allerede får fra helsepersonell, arbeidsgiver og NAV. Du blir spurt om å delta i dette prosjektet fordi du er sykmeldt på grunn av muskel- og skjelettplager. Informasjon om denne studien har blitt sendt til alle som er sykmeldt for slike plager i Trøndelag. Institutt for samfunnsmedisin og sykepleie ved NTNU er ansvarlig for studien.
+    </p>
+    <h2>Hva innebærer prosjektet for deg?</h2>
+      <p>Vi vil be deg fylle inn et nettbasert spørreskjema om din helsetilstand og bakgrunn. Det tar ca. 10-15 minutter. Etter at du har fylt inn spørreskjemaet vil du ved tilfeldig trekning bli fordelt til en forsøksgruppe eller en kontrollgruppe. <br> Hvis du fordeles til forsøksgruppen, vil du få tilgang til SmaRTWork appen. For å bruke appen må du aktivere Apple Health (iOS) eller Google Fit (Android) på telefonen din. Dette innebærer at du må akseptere vilkårene til Apple Health (iOS) eller Google Fit (Android) for datadeling. Dette er obligatorisk for deltakelse i studien. Via appen vil du få forslag til hvordan du kan håndtere muskel- og skjelettplagene dine samt informasjon om det å være sykmeldt og prosessen med å komme tilbake til arbeid. Appen kan du bruke så lenge du vil i opptil 12 måneder. For å tilpasse rådene til deg og din situasjon vil du via appen få ukentlige spørsmål om sykmeldingsstatus og hvordan det går med plagene dine. Det tar ca. 1-2 minutter per uke. Hvis spørreskjemaet avdekker utfordringer der en samtale med NAV veileder kan være aktuelt vil en forsker kontakte deg og informere om dette tilbudet. Du velger selv om du vil takke ja til dette. Du kan også bli invitert til et intervju der vi spør om hvordan du har brukt appen og hva som fungerte bra og mindre bra for deg. Deltakelse i intervjuet er frivillig. <br>SmaRTWork appen er et tillegg til vanlig behandling og skal ikke erstatte kontakt med helsepersonell. Ved spørsmål om din helse tar du kontakt med helsetjenesten slik du ville gjort om du ikke var en del av prosjektet. <br>
+        Hvis du fordeles til kontrollgruppen vil du ikke få tilgang til å bruke SmaRTWork appen, men deltakere i både forsøksgruppen og kontrollgruppen vil bli bedt om å svare på et spørreskjema etter 3 måneder, 6 måneder og 12 måneder. Dette tar 10-15 minutter hver gang. <br>
+        I prosjektet vil vi registrere din e-post adresse og ditt telefonnummer. Dette trenger vi for å kunne gi deg tilgang til spørreskjemaene og appen, og for å kunne kontakte deg underveis. 
+        Via ditt personnummer vil vi etablere en kobling til nasjonale register for sykefravær (NAV) og helsetjenesteforbruk (Kommunalt pasient- og brukerregister og norsk pasientregister) med oppfølgingstid på 1 år med mulighet for forlengelse opp til 10 år. Hensikten med denne koblingen er å undersøke effekten av appen på sykefravær og å gjøre en helseøkonomisk vurdering av kostnader versus nytteverdi av SmaRTWork appen. Informasjon som er aktuell å hente fra NAV er bruk av medisinske ytelser (sykemeldinger, arbeidsavklaringspenger og uføretrygd, inkludert diagnose og datoer). For helsetjenesteforbruk er det bruk av helsetjenester i kommune- og spesialisthelsetjenesten (inkludert dato for besøk). Navn og personnummer vil ikke være tilgjengelig for forskerne som analyser data. 
+        </p>
+    <h2>Mulige fordeler og ulemper</h2>
+     <p> Hvis du fordeles til app gruppen vil du få råd om håndtering av plagene dine og veien tilbake til jobb etter sykefravær. Rådene er spesielt rettet mot fysisk aktivitet, styrke- og bevegelighetsøvelser, stressmestring og informasjon om muskel- og skjelettplager. I tillegg vil du få informasjonen om ulike ytelser fra NAV, hva du kan forvente av oppfølging fra NAV, og faktorer i arbeid og privatliv som kan påvirke arbeidsevne og retur til arbeid. Uansett om du fordeles til forsøksgruppen eller kontrollgruppen vil du være med på å gi et viktig bidrag til utvikling av ny kunnskap som kan være til stor hjelp for personer som er sykmeldt for muskel- og skjelettplager. Det er ingen kjent risiko med deltakelse i studien, men fysisk aktivitet kan i sjeldne tilfeller forverre muskel- og skjelettplager. Vanligvis er dette forbigående og smertene vil forsvinne i løpet av få dager. Deltakelse i studien kommer i tillegg til vanlig oppfølging du har av NAV og lege og vil ikke ha noen innvirkning eller konsekvens for annen oppfølging eller behandling du mottar. Hvis du takker ja til å settes i kontakt med din NAV veileder kan det komme frem at andre ytelser enn de du har i dag er mer riktige for deg. Utover dette vil prosjektet ikke påvirke dine ytelser fra NAV. Hvis du har spørsmål underveis i studien kan du kontakte oss på telefon eller via e-post. </p>
+    <h2>Frivillig deltakelse og mulighet for å trekke ditt samtykke</h2>
+    <p> Det er frivillig å delta i prosjektet. Hvis du samtykker til å delta trykker du i boksen for "Ja" nederst på siden. Om du ikke ønsker å delta trykker du i boksen for "Nei". Du som samtykker kan når som helst og uten grunn trekke ditt samtykke, og dette vil ikke ha noen konsekvenser for din videre behandling til din fastlege. Adgangen til å kreve sletting av dine data gjelder ikke dersom opplysningene er anonymisert.
+    </p>
+    <h2>Hva skjer med opplysningene om deg?</h2>
+    <p>Opplysningene som registreres om deg skal kun brukes slik som beskrevet under formålet med prosjektet. Eventuelle utvidelser i bruk og oppbevaringstid kan kun skje etter godkjenning fra etisk komité (REK) og andre relevante myndigheter. Du har rett til innsyn i hvilke opplysninger som er registrert om deg og rett til å få korrigert eventuelle feil i de opplysningene som er registrert. Du har også rett til innsyn i sikkerhetstiltakene ved behandling av opplysningene. Du kan klage på behandlingen av dine opplysninger til Datatilsynet og institusjonen sitt personvernombud. 
+      Alle opplysningene vil bli behandlet uten navn og fødselsnummer eller andre direkte gjenkjennende opplysninger (=kodede opplysninger). En kode knytter deg til dine opplysninger gjennom en navneliste. Det er kun prosjektkoordinator hos NAV som har tilgang til denne listen. <br>
+      Etter at forskningsprosjektet er ferdig (31.03.2034), vil opplysningene om deg bil oppbevart i ti år for kontrollhensyn. Etter dette vil alle data anonymiseres og oppbevares i inntil 30 år for forskning.       
+    </p>
+    <h2>Forsikring</h2>
+    <p> Deltakelse i studien innebærer ingen kjent risiko for skade. Utover pasientskadeloven er det ikke tegnet egen forsikring for prosjektet. NTNU har et generelt erstatningsansvar hvis skade skulle oppstå.
+    </p>
+    <h2>Godkjenninger</h2>
+    <p> Regional komite for medisinsk og helsefaglig forskningsetikk ved komiteene for Klinisk utprøving av legemidler og medisinsk utstyr (REK KULMU), har vurdert studien (referansenummer 563919), og har gitt forhåndsgodkjenning. <br>
+      NTNU og prosjektleder Lene Aasdahl er ansvarlig for personvernet i prosjektet. <br>
+      Vi behandler opplysningene basert på ditt samtykke og i henhold til NTNU sitt reglement for databehandling. <br>
+       </p>
+    <h2>Kontaktopplysninger</h2>
+    <p>  Dersom du har spørsmål til prosjektet, opplever uønskede hendelser eller bivirkninger, eller ønsker å trekke deg fra deltakelse, kan du kontakte prosjektleder <strong>Lene Aasdahl, tlf.nr: 93224342, epost: lene.aasdahl@ntnu.no </strong>.</p>
+    <p>  Dersom du har spørsmål om personvernet i prosjektet, kan du kontakte personvernombudet ved NTNU: <strong>personvernombud@ntnu.no.</strong>
+    </p>
+    <section class="nav-buttons">
+      <button mat-raised-button matStepperPrevious color="primary">Tilbake</button>
+      <button mat-raised-button matStepperNext color="primary">Neste</button>
+    </section>
+  </mat-step>
+
+  <mat-step label="Samtykke">
+    <p>Jeg samtykker til å delta i prosjektet og til at mine personopplysninger brukes slik det er beskrevet.</p>
+        <section class="nav-buttons">
+        <button mat-raised-button [value]="true" matStepperNext color="primary">JA, jeg samtykker til å delta</button>
+          <button mat-raised-button (click)="onSubmitNotConsent()" color="primary">NEI, jeg samtykker ikke til å delta</button>
+        </section>
+      <section class="nav-buttons">
+        <button mat-raised-button matStepperPrevious color="primary">Tilbake</button>
+      </section>
+  </mat-step>
+
+  <mat-step [stepControl]="formRegistration" label="Registrering">
+    <p>Takk for at du vil være med i studien. Vi trenger at du registrerer deg ved å fylle inn informasjon nedenfor. Du vil deretter få en epost med spørreskjema som du MÅ fylle inn før du kommer til legen.</p>
+    <p>Ditt brukernavn blir laget automatisk og du trenger ikke huske det. Fastlegen får en epost med ditt brukernavn og beskjed om at du har fylt ut skjemaene.</p>
+    <form class="registration-form" [formGroup]="formRegistration">
+      <mat-form-field>
+        <input matInput [formControl]="registrationControls.emailCtrl" placeholder="e-post"
+               autocomplete="e-post"
+               type="e-post" required/>
+        <mat-error *ngIf="registrationControls.emailCtrl.touched && registrationControls.emailCtrl.errors">
+          Ugyldig epost
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [formControl]="registrationControls.confirmEmailControl" placeholder="bekreft e-post"
+                 autocomplete="bekreft e-post"
+                 type="bekreft e-post" required
+                 (paste)="(false)"/>
+        <mat-error *ngIf="registrationControls.confirmEmailControl.touched && registrationControls.confirmEmailControl.errors">
+            e-posten stemmer ikke
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [formControl]="registrationControls.firstnameCtrl" placeholder="Fornavn"
+               autocomplete="Fornavn"
+               type="text" required/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [formControl]="registrationControls.lastnameCtrl" placeholder="Etternavn"
+               autocomplete="Etternavn"
+               type="text" required/>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [formControl]="registrationControls.phoneCtrl" placeholder="Mobilnummer"
+               autocomplete="tel"
+               type="tel" required/>
+        <mat-error *ngIf="registrationControls.phoneCtrl.touched && registrationControls.phoneCtrl.errors">
+          Ugyldig telefonnummer
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput [formControl]="registrationControls.patientIdCtrl" placeholder="Brukernavn"
+               autocomplete="Brukernavn"
+               type="text" required
+               [readonly]="true"/>
+      </mat-form-field>
+
+      <section class="nav-buttons">
+        <button mat-raised-button matStepperPrevious color="primary">Tilbake</button>
+        <button mat-raised-button matStepperNext [disabled]="!formRegistration.valid" (click)="onSubmitRegistration()"
+                color="primary">Ferdig
+        </button>
+      </section>
+    </form>
+  </mat-step>
+</mat-stepper>
+</div>

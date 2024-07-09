@@ -1,0 +1,36 @@
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  //margin: 16px auto;  //centers on the page
+}
+
+.nav-buttons{
+  margin: 10px auto auto;
+  *{
+    margin: auto 8px;
+  }
+}
+p {
+  style: "text-align:left";
+  font-size: 18px;
+  line-height: 140%;
+}
+.small-text {
+  font-size: 14px;
+}
+
+.mat-toolbar {
+  background: white;
+  color: #fff;
+}
+
+.radio-button {
+  margin-left: 25px;
+}
+
+.inclusion-question {
+
+  font-size: 18px;
+  line-height: 110%;
+}
