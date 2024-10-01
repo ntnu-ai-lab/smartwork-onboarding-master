@@ -26,7 +26,7 @@ type InclusionQuestion = {
 
 /**
  *
- * A new patients opens a link from SMS, e.g. https://onboarding.smartwork.no/?navid=nav_id
+ * A new patients opens a link from SMS, e.g. https://onboarding.smartwork.no/?navid=FFF121
  * A wizard with steps:
  * <ul>
  * <li>Short  information</li>
@@ -38,7 +38,7 @@ type InclusionQuestion = {
  * Eligibility questions are loaded from inclusion-questions.json
  */
 
-const BAD_URL_IMS = "Lenken du har klikket på er feil, forsøk å åpne lenken i eposten du har mottatt fra SupportPrim på nytt. Dersom det fremdeles ikke virker kan du kontakte support på support@smartwork.no / tlf 93 224 342"
+const BAD_URL_IMS = "Lenken du har klikket på er feil, forsøk å åpne lenken i eposten du har mottatt fra SmartWork på nytt. Dersom det fremdeles ikke virker kan du kontakte support på support@smartwork.no / tlf 93 224 342"
 
 @Component({
   selector: 'onboarding-stepper',
@@ -101,6 +101,7 @@ export class OnboardingStepperComponent implements OnInit {
         alert (BAD_URL_IMS)
       }
     });
+    
     this.inclusionQuestions = inclusionQuestionsJson as InclusionQuestion[];
 
     this.formInclusion = this.formBuilder.group(this.inclusionQuestions.reduce(
@@ -250,8 +251,8 @@ export class OnboardingStepperComponent implements OnInit {
 
     this.backend.sendRegistration(newPatient).subscribe(
       _ => {
-        //window.location.href = 'https://supportprim-fastlege.idi.ntnu.no/onboarding-app/assets/done.html'
-        window.location.href = 'https://supportprim-dev.idi.ntnu.no/onboarding-app/assets/done.html'
+        window.location.href = 'assets/done2.html'
+        //window.location.href = 'https://supportprim-dev.idi.ntnu.no/onboarding-app/assets/done.html'
       },
       error => {
         this.snackBar.open(`${error.error}`, "Close");

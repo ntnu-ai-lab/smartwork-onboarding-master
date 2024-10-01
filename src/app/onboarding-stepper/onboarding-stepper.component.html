@@ -1,13 +1,13 @@
 <div class="container">
-<mat-toolbar>
+  
+<!--<mat-toolbar>
   <span><br>
     <br>
     <img style="float: right; margin: 0px 0px 15px 15px;" src="assets/images/smartwork_logo.png"  width="150" />
     <img style="float: right; margin: 0px 0px 15px 15px;" src="assets/images/logo_ntnu.png"   width="150" />
   </span>
-</mat-toolbar>
-<br>
-<br>
+</mat-toolbar> =-->
+
 <mat-stepper
   class="example-stepper"
   linear="true"
@@ -126,8 +126,8 @@
   </mat-step>
 
   <mat-step [stepControl]="formRegistration" label="Registrering">
-    <p>Takk for at du vil være med i studien. Vi trenger at du registrerer deg ved å fylle inn informasjon nedenfor. Du vil deretter få en epost med spørreskjema som du MÅ fylle inn før du kommer til legen.</p>
-    <p>Ditt brukernavn blir laget automatisk og du trenger ikke huske det. Fastlegen får en epost med ditt brukernavn og beskjed om at du har fylt ut skjemaene.</p>
+    <p>Takk for at du er interessert i å delta i studien! Etter at du har fylt ut kontaktinformasjonen nedenfor vil en av våre prosjektmedarbeidere ringe deg for å svare på eventuelle spørsmål og bekrefte om studien passer for deg.</p>
+    <p>Brukernavnet ditt registreres automatisk og du trenger ikke å huske det.</p>
     <form class="registration-form" [formGroup]="formRegistration">
       <mat-form-field>
         <input matInput [formControl]="registrationControls.emailCtrl" placeholder="e-post"
