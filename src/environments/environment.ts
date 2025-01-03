@@ -8,7 +8,7 @@ export const environment = {
     endpoints:{
       eligibility: "http://localhost:8013/onboarding/eligibility",
       register: "http://localhost:8013/onboarding/patient",
-      status: "http://localhost:8013/onboarding/getOnboardingStatus/"
+      status: "http://localhost:8013/onboarding/sendFromStatus/"
     }
   },
   defaults:{
@@ -17,27 +17,6 @@ export const environment = {
     phone: "+47 12345678"
   }
 };
-
-
-
-
-/*
-export const environment = {
-  production: false,
-  backend: {
-    endpoints:{
-      eligibility: "http://localhost:3002/eligibility",
-      register: "http://localhost:3002/patient",
-      clinicians: "http://localhost:3002/getCliniciansByClinic/"
-    }
-  },
-  defaults:{
-    username: "test-username",
-    email: "test@example.com",
-    phone: "+47 12345678"
-  }
-};
-*/
 
 
 

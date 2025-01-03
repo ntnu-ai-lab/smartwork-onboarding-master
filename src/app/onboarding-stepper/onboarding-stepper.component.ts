@@ -26,7 +26,9 @@ type InclusionQuestion = {
 
 /**
  *
- * A new patients opens a link from SMS, e.g. https://onboarding.smartwork.no/?navid=FFF121
+ * A new patients opens a link from SMS, e.g. https://onboarding.smartwork.no/?navid=G1/N0
+ * The sid is a query parameter referring to source ID, the value N0 represents patients from NAV and G1 
+ * represents patients coming from GP reccomendations.
  * A wizard with steps:
  * <ul>
  * <li>Short  information</li>
@@ -58,12 +60,8 @@ export class OnboardingStepperComponent implements OnInit {
   public formRegistration: FormGroup;
   public inclusionQuestions: InclusionQuestion[];
   public navID: string | null = null;
-  //public clinicianID: string | null = null;
-  //public clinicID: string | null = null;
-  //public clinicName: string | null = null;
-  // related to the dropdown of clinician
   public registeredUser: any | null = null;
-  //public employee: Clinician | undefined;
+
 
   public eligiblityID: string | null = null;
   public registrationControls: {
@@ -87,20 +85,23 @@ export class OnboardingStepperComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       const navId = params.get('navid')
       if (navId) {
-        this.navID = navId;
-        this.backend.getOnboardingStatus(navId).subscribe((response: string) => {
-          
-          if (response === "Proceed") {
-            console.log('No existing patient found, proceed with registration');
-          }
-        },error => {
-          window.location.href = 'assets/already_registered.html'
-          console.log('User is already registered.')
-        })
-      } else {
-        alert (BAD_URL_IMS)
-      }
-    });
+        // Check if navId contains "G" or "g" and assign "gp"
+        if (navId.toLowerCase().includes('g')) {
+        this.navID = "gp";
+        } 
+        // Check if navId contains "N" or "n" and assign "nav"
+        else if (navId.toLowerCase().includes('n')) {
+        this.navID = "nav";
+        } 
+        // Handle the case where navId is null or empty
+      else {
+      console.error('Error: navid is invalid');
+      this.navID = null;  // Or handle the error case as needed
+    }
+  } else {
+    alert (BAD_URL_IMS);
+  }
+        });
     
     this.inclusionQuestions = inclusionQuestionsJson as InclusionQuestion[];
 
@@ -180,25 +181,6 @@ export class OnboardingStepperComponent implements OnInit {
         phone.value.replace(/ /g,'').toLowerCase().substring(7,8)
       ));
   }
-
-
-//drop down
-/*
-  public onChangeClinician(event: any): void {
-    const newId = event.target.value;
-    console.log("new id", newId);
-    console.log(event);
-    if (this.cliniciansInClinic) {
-      this.employee = Object.values(this.cliniciansInClinic).find(
-        (c) => c.clinicianID == newId)
-      if (this.employee === undefined)
-        return
-      this.clinicianID = newId
-      // @ts-ignore
-      this.clinicName = this.employee.clinicName;
-      console.log("new id", newId);
-    }
-  }*/
 
 
   /**This is not made as a validator because it does not invalidate the answers, it changes the logic.*/

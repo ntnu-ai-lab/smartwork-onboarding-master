@@ -26,8 +26,11 @@ export class BackendService {
   }
 
   
-  public getOnboardingStatus(navID: String): Observable<string>{
+  /* 
+  public sendFromStatus(navID: String): Observable<string>{
     return this.httpClient.get(environment.backend.endpoints.status + navID, {responseType: 'text'});
-  }
+  } 
+   */
+    
   
 }
