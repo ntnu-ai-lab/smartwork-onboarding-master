@@ -1,0 +1,65 @@
+.container {
+    padding: 1rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.logo-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 80%; /* brought the logos inside a bit */
+    margin: 0 auto; 
+    padding: 0 2rem; 
+}
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    width: 140px;
+    height: auto;
+    max-width: 45%;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 600px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .logo-container {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        padding: 0.5rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .logo {
+        width: 100px;
+    }
+}

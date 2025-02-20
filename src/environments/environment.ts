@@ -6,15 +6,17 @@ export const environment = {
   production: false,
   backend: {
     endpoints:{
+      //eligibility: "http://localhost:8013/onboarding/eligibility",
+      //register: "http://localhost:8013/onboarding/patient",
+      //status: "http://localhost:8013/onboarding/sendFromStatus/"
       eligibility: "http://smartwork-dev-onboarding.idi.ntnu.no/onboarding/eligibility",
       register: "http://smartwork-dev-onboarding.idi.ntnu.no/onboarding/patient",
-      status: "http://smartwork-dev-onboarding.idi.ntnu.no/onboarding/sendFromStatus/"
     }
   },
   defaults:{
-    username: "test-username",
-    email: "test@example.com",
-    phone: "+47 12345678"
+    username: "",
+    email: "",
+    phone: ""
   }
 };
 

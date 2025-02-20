@@ -108,8 +108,9 @@ export class OnboardingStepperComponent implements OnInit {
     this.formInclusion = this.formBuilder.group(this.inclusionQuestions.reduce(
       (controls, q) =>
         (controls[q.id] = [
-          environment.production ? '' :
-            q.exclusionOn === 'yes' ? 'no' : 'yes', //in development just activate all valid answers
+          '',
+          //environment.production ? '' :
+            //q.exclusionOn === 'yes' ? 'no' : 'yes', //in development just activate all valid answers
           Validators.required], controls), {} as { [p: string]: any })
     );
 

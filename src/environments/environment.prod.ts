@@ -5,6 +5,8 @@ export const environment = {
       eligibility: "https://smartwork-onboarding.idi.ntnu.no/onboarding/eligibility",
       register: "https://smartwork-onboarding.idi.ntnu.no/onboarding/patient",
       status: "https://smartwork-onboarding.idi.ntnu.no/sendFromStatus/"
+      //eligibility: "http://localhost:8013/onboarding/eligibility",
+      //register: "http://localhost:8013/onboarding/patient",
      
     }
   },

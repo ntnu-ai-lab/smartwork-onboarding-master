@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://smartwork-dev-backend-user.idi.ntnu.no",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

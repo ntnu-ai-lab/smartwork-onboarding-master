@@ -31,7 +31,7 @@
   },
   {
     "id": "InclusionDoctor",
-    "question": "(Hvis JA på forrige spørsmål) Har disse plagene vært vurdert av fastlege eller annen lege?",
+    "question": "Har disse plagene vært vurdert av din fastlege eller annen lege?",
     "answers": [
       {
         "value": "yes",
@@ -42,12 +42,12 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "yes"
+    "exclusionOn": "no"
   },
   
   {
     "id": "InclusionNorwegian",
-    "question": "Forstår du norsk både muntlig og skriftlig, og kan skrive på norsk?",
+    "question": "Forstår du norsk både muntlig og skriftlig?",
     "answers": [
       {
         "value": "yes",
@@ -77,7 +77,7 @@
   },
   {
     "id": "InclusionSmartphone",
-    "question": "Har du en smarttelefon (kan laste ned apper)?",
+    "question": "Har du en smarttelefon (som kan laste ned apper)?",
     "answers": [
       {
         "value": "yes",
@@ -92,7 +92,7 @@
   },
   {
     "id": "InclusionPregnancy",
-    "question": "Er du gravid eller har plager relatert til graviditet?",
+    "question": "Er du gravid?",
     "answers": [
       {
         "value": "yes",
@@ -107,7 +107,7 @@
   },
   {
     "id": "InclusionSickleave",
-    "question": "Planlegger du full retur til arbeid neste uke (dvs. avslutte sykefravær)?",
+    "question": "Planlegger du å avslutte det nåværende sykefraværet innen utgangen av neste uke?",
     "answers": [
       {
         "value": "yes",
