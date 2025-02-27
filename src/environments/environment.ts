@@ -6,9 +6,9 @@ export const environment = {
   production: false,
   backend: {
     endpoints:{
-      eligibility: "http://smartwork-dev-onboarding.idi.ntnu.no/onboarding/eligibility",
-      register: "http://smartwork-dev-onboarding.idi.ntnu.no/onboarding/patient",
-      status: "http://smartwork-dev-onboarding.idi.ntnu.no/onboarding/sendFromStatus/"
+      eligibility: "https://smartwork-dev-onboarding.idi.ntnu.no/onboarding/eligibility",
+      register: "https://smartwork-dev-onboarding.idi.ntnu.no/onboarding/patient",
+      status: "https://smartwork-dev-onboarding.idi.ntnu.no/onboarding/sendFromStatus/"
     }
   },
   defaults:{
