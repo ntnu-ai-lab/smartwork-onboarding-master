@@ -1,7 +1,7 @@
 [
   {
     "id": "InclusionAge",
-    "question": "Er du mellom 20 og 60 år?",
+    "question": "Er alderen din fra 20 til 59 år?",
     "answers": [
       {
         "value": "yes",
