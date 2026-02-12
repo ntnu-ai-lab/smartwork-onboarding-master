@@ -5,6 +5,12 @@
       <p class="message-text">
         Du kan dessverre ikke delta i studien, siden du ikke tilfredsstiller alle inklusjonskriteriene.
       </p>
+      <div *ngIf="reasons.length > 0">
+        <p class="message-text"><strong>Følgende kriterier er ikke oppfylt:</strong></p>
+        <ul>
+          <li *ngFor="let reason of reasons">{{reason}}</li>
+        </ul>
+      </div>
       <p class="message-text">
         Tusen takk for at du svarte på spørsmålene.
       </p>

@@ -208,31 +208,42 @@ export class OnboardingStepperComponent implements OnInit {
 
 
   /**This is not made as a validator because it does not invalidate the answers, it changes the logic.*/
-  private matchInclusion(): boolean {
-    let isIncluded: boolean = this.inclusionQuestions.every(q => this.formInclusion.get(q.id)?.value !== q.exclusionOn);
-    return isIncluded;
+  private getExclusionReasons(): string[] {
+    return this.inclusionQuestions
+      .filter(q => this.formInclusion.get(q.id)?.value === q.exclusionOn)
+      .map(q => q.question);
   }
+
   public onSubmitInclusion(): void {
-    let answers = this.inclusionQuestions.reduce(
+    // Check exclusion before backend call
+    const exclusionReasons = this.getExclusionReasons();
+    if (exclusionReasons.length > 0) {
+      this.router.navigate(['exclusion'], { state: { reasons: exclusionReasons } });
+      return;
+    }
+
+    // Collect answers and send to backend
+    const answers = this.inclusionQuestions.reduce(
       (map, q) => (map[q.id] = this.formInclusion.get(q.id)?.value, map),
       {} as { [p: string]: any });
+
     this.backend.sendEligibilityAnswers(answers)
       .pipe(catchError(err => {
-       this.formInclusion.markAsUntouched();
-       this.formInclusionCompleted = false;
-       return this.handleError(err);
+        this.formInclusion.markAsUntouched();
+        this.formInclusionCompleted = false;
+        return this.handleError(err);
       }))
       .subscribe(response => {
-       this.eligiblityID = response.id;
-       console.log(response.id);
-       this.formInclusionCompleted = true;
+        this.eligiblityID = response.id;
+        this.formInclusionCompleted = true;
+
         if (this.stepper?.selected) {
           this.stepper.selected.completed = true;
           this.stepper?.next();
         }
-     });
-    if (!this.matchInclusion()) this.router.navigateByUrl('exclusion');
+      });
   }
+
 
   public onSubmitNotConsent() {
     this.router.navigateByUrl('exclusion')
