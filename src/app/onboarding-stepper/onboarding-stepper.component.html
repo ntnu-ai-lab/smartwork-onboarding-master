@@ -9,9 +9,9 @@
   <mat-step label="Informasjon">
 
     <h2>Invitasjon til deltakelse i forskningsprosjektet SmaRTWork ved NTNU</h2>
-    
-    
-    <p>SmaRTWork er en mobilapp for deg som er sykmeldt på grunn av muskel- og skjelettplager (ryggsmerter, nakkesmerter eller utbredte muskelsmerter). I appen får du forslag til treningsøvelser med videoinstruksjoner og anbefalinger om fysisk aktivitet som er tilpasset deg. Den inneholder også forskningsbasert kunnskap om muskel- og skjelettplager og hvordan du best kan håndtere disse. Du vil også få persontilpasset informasjon og veiledning om veien tilbake til arbeid. </p>
+
+
+    <p>SmaRTWork er en mobilapp for deg som er sykmeldt på grunn av muskel‑ og skjelettplager som ryggsmerter, nakkesmerter eller utbredte muskelsmerter. I appen får du forskningsbasert kunnskap om muskel- og skjelettplager og tips til hvordan du kan håndtere dem i hverdagen på best mulig måte. Du får også persontilpasset informasjon og veiledning om veien tilbake til arbeid. I tillegg får du treningsøvelser med videoer og anbefalinger om fysisk aktivitet som er tilpasset deg.</p>
     <p>Når du trykker "Neste" vil du få noen spørsmål for å se om studien passer for deg. Deretter fyller du inn navn og kontaktinformasjon. En prosjektmedarbeider vil ringe deg for å svare på eventuelle spørsmål du har om deltakelse i studien, og for å sikre at den er riktig for deg. Du kan når som helst trekke deg fra studien uten å oppgi noen grunn. </p>
     <p>SmaRTWork er et prosjekt som utføres av NTNU i samarbeid med Nav og er finansiert av Norges forskningsråd. Målet med prosjektet er å utvikle og evaluere SmaRTWork appen.</p>
     <p> Du kan lese mer om prosjektet på <a href="https://smartwork.no/" target="_blank" rel="noopener noreferrer">SmaRTWork</a>.
@@ -20,7 +20,7 @@
     <button mat-raised-button matStepperNext class="form-control" color="primary">Neste</button>
   </mat-step>
 
-  <mat-step  label="Inklusjonskriterier" [completed]="formInclusion.valid && formInclusionCompleted"> 
+  <mat-step  label="Inklusjonskriterier" [completed]="formInclusion.valid && formInclusionCompleted">
     {{formInclusion.errors?.message}}
     <form [formGroup]="formInclusion">
       <h2>Studien har flere kriterier som avgjør om du kan være med som deltager. Hva du svarer på spørsmålene nedenfor avgjør

@@ -13,7 +13,7 @@
       }
     ],
     "exclusionOn": "no",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Alder er under 20 år eller 60 år eller eldre"
   },
   {
     "id": "InclusionPain",
@@ -29,7 +29,7 @@
       }
     ],
     "exclusionOn": "no",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Muskel- og skjelettplager er ikke hovedgrunn til sykmelding"
   },
   {
     "id": "InclusionDoctor",
@@ -45,7 +45,7 @@
       }
     ],
     "exclusionOn": "no",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Plagene er ikke vurdert av fastlege eller annen lege"
   },
 
   {
@@ -62,7 +62,7 @@
       }
     ],
     "exclusionOn": "no",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Forstår ikke norsk muntlig/skriftlig"
   },
   {
     "id": "InclusionEmployer",
@@ -78,7 +78,7 @@
       }
     ],
     "exclusionOn": "no",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Har ikke arbeidsgiver"
   },
   {
     "id": "InclusionSmartphone",
@@ -94,7 +94,7 @@
       }
     ],
     "exclusionOn": "no",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Har ikke smarttelefon"
   },
   {
     "id": "InclusionPregnancy",
@@ -110,7 +110,7 @@
       }
     ],
     "exclusionOn": "yes",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Er gravid"
   },
   {
     "id": "InclusionSickleave",
@@ -126,6 +126,6 @@
       }
     ],
     "exclusionOn": "yes",
-    "failureMessage": "Deltakere må være mellom 20 og 59 år"
+    "failureMessage": "Planlegger å avslutte nåværende sykmelding neste uke"
   }
 ]

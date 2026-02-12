@@ -3,12 +3,12 @@
     <h1 style="text-align: center;" class="title">Inklusjonskriterier</h1>
     <div class="content">
       <p class="message-text">
-        Du kan dessverre ikke delta i studien, siden du ikke tilfredsstiller alle inklusjonskriteriene.
+        Du kan dessverre ikke delta i studien da du ikke oppfyller alle inklusjonskriteriene (hvis du oppdager at du krysset feil på noen av spørsmålene kan du gå tilbake og svare på nytt).
       </p>
       <div *ngIf="reasons.length > 0">
-        <p class="message-text"><strong>Basert på følgende svar:</strong></p>
+        <p class="message-text">Vurderingen er basert på følgende:</p>
         <ul>
-          <li *ngFor="let reason of reasons">{{reason}}</li>
+          <li class="message-text" *ngFor="let reason of reasons">{{reason}}</li>
         </ul>
       </div>
       <p class="message-text">
