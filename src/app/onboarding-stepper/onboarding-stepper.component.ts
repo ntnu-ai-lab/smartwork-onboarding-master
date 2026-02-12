@@ -209,21 +209,17 @@ export class OnboardingStepperComponent implements OnInit {
 
 
   /**This is not made as a validator because it does not invalidate the answers, it changes the logic.*/
+  private matchInclusion(): boolean {
+    return this.inclusionQuestions.every(q => this.formInclusion.get(q.id)?.value !== q.exclusionOn);
+  }
+
   private getExclusionReasons(): string[] {
     return this.inclusionQuestions
       .filter(q => this.formInclusion.get(q.id)?.value === q.exclusionOn)
-      .map(q => q.failureMessage || q.question);
+      .map(q => q.question);
   }
 
   public onSubmitInclusion(): void {
-    // Check exclusion before backend call
-    const exclusionReasons = this.getExclusionReasons();
-    if (exclusionReasons.length > 0) {
-      this.router.navigate(['exclusion'], { state: { reasons: exclusionReasons } });
-      return;
-    }
-
-    // Collect answers and send to backend
     const answers = this.inclusionQuestions.reduce(
       (map, q) => (map[q.id] = this.formInclusion.get(q.id)?.value, map),
       {} as { [p: string]: any });
@@ -243,7 +239,12 @@ export class OnboardingStepperComponent implements OnInit {
           this.stepper?.next();
         }
       });
+
+    if (!this.matchInclusion()) {
+      this.router.navigate(['exclusion'], { state: { reasons: this.getExclusionReasons() } });
+    }
   }
+
 
 
   public onSubmitNotConsent() {
