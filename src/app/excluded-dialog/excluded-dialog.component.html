@@ -6,7 +6,7 @@
         Du kan dessverre ikke delta i studien, siden du ikke tilfredsstiller alle inklusjonskriteriene.
       </p>
       <div *ngIf="reasons.length > 0">
-        <p class="message-text"><strong>Følgende kriterier er ikke oppfylt:</strong></p>
+        <p class="message-text"><strong>Basert på følgende svar:</strong></p>
         <ul>
           <li *ngFor="let reason of reasons">{{reason}}</li>
         </ul>

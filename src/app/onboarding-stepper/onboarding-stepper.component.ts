@@ -31,6 +31,7 @@ type InclusionQuestion = {
   answers: { value: string, label: string }[],
   answerLabels: string[],
   exclusionOn: string,
+  failureMessage?: string
 };
 
 /**
@@ -211,7 +212,7 @@ export class OnboardingStepperComponent implements OnInit {
   private getExclusionReasons(): string[] {
     return this.inclusionQuestions
       .filter(q => this.formInclusion.get(q.id)?.value === q.exclusionOn)
-      .map(q => q.question);
+      .map(q => q.failureMessage || q.question);
   }
 
   public onSubmitInclusion(): void {
