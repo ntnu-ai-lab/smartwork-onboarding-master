@@ -1,5 +1,14 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators, FormGroupDirective, NgForm, ValidatorFn } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+  FormGroupDirective,
+  NgForm,
+  ValidatorFn,
+  AbstractControl, ValidationErrors
+} from "@angular/forms";
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {MatStepper, StepperOrientation} from '@angular/material/stepper';
 import {Observable, combineLatest, merge, throwError} from 'rxjs';
@@ -27,7 +36,7 @@ type InclusionQuestion = {
 /**
  *
  * A new patients opens a link from SMS, e.g. https://onboarding.smartwork.no/?navid=G1/N0
- * The sid is a query parameter referring to source ID, the value N0 represents patients from NAV and G1 
+ * The sid is a query parameter referring to source ID, the value N0 represents patients from NAV and G1
  * represents patients coming from GP reccomendations.
  * A wizard with steps:
  * <ul>
@@ -88,11 +97,11 @@ export class OnboardingStepperComponent implements OnInit {
         // Check if navId contains "G" or "g" and assign "gp"
         if (navId.toLowerCase().includes('g')) {
         this.navID = "gp";
-        } 
+        }
         // Check if navId contains "N" or "n" and assign "nav"
         else if (navId.toLowerCase().includes('n')) {
         this.navID = "nav";
-        } 
+        }
         // Handle the case where navId is null or empty
       else {
       console.error('Error: navid is invalid');
@@ -102,7 +111,7 @@ export class OnboardingStepperComponent implements OnInit {
     alert (BAD_URL_IMS);
   }
         });
-    
+
     this.inclusionQuestions = inclusionQuestionsJson as InclusionQuestion[];
 
     this.formInclusion = this.formBuilder.group(this.inclusionQuestions.reduce(
@@ -120,23 +129,37 @@ export class OnboardingStepperComponent implements OnInit {
       consentCtrl: ['', Validators.required]
     });
 
+    // Trim email whitespaces
+    const trimValidator = (control: AbstractControl): ValidationErrors | null => {
+      if (control.value && typeof control.value === 'string') {
+        const trimmed = control.value.trim();
+        if (trimmed !== control.value) {
+          control.setValue(trimmed, { emitEvent: false });
+        }
+      }
+      return null;
+    };
+
 
     // Registration
     this.registrationControls = {
       patientIdCtrl: new FormControl(environment.defaults?.username, [
         Validators.required, Validators.pattern('[a-zA-Z][\\w\\-]{3,20}')]),
       emailCtrl: new FormControl(environment.defaults?.email, [
+        trimValidator,
         Validators.required,
         Validators.email,]),
       confirmEmailControl:  new FormControl(environment.defaults?.email, [
+        trimValidator,
         Validators.required,
         Validators.email,
         (control) => {
-          const email = control.value;
+          const email = control.value?.trim();
           // Hack
           if (this.registrationControls === undefined)
             return null;
-          if (email != this.registrationControls.emailCtrl.value)
+          const mainEmail = this.registrationControls.emailCtrl.value?.trim();
+          if (email !== mainEmail)
             return {badEmail: {value: email}};
           return null;
         },]),
@@ -206,7 +229,7 @@ export class OnboardingStepperComponent implements OnInit {
         if (this.stepper?.selected) {
           this.stepper.selected.completed = true;
           this.stepper?.next();
-        } 
+        }
      });
     if (!this.matchInclusion()) this.router.navigateByUrl('exclusion');
   }
