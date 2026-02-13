@@ -12,7 +12,8 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "no"
+    "exclusionOn": "no",
+    "failureMessage": "Alder er under 20 år eller 60 år eller eldre"
   },
   {
     "id": "InclusionPain",
@@ -27,7 +28,8 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "no"
+    "exclusionOn": "no",
+    "failureMessage": "Muskel- og skjelettplager er ikke hovedgrunn til sykmelding"
   },
   {
     "id": "InclusionDoctor",
@@ -42,9 +44,10 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "no"
+    "exclusionOn": "no",
+    "failureMessage": "Plagene er ikke vurdert av fastlege eller annen lege"
   },
-  
+
   {
     "id": "InclusionNorwegian",
     "question": "Forstår du norsk både muntlig og skriftlig?",
@@ -58,7 +61,8 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "no"
+    "exclusionOn": "no",
+    "failureMessage": "Forstår ikke norsk muntlig/skriftlig"
   },
   {
     "id": "InclusionEmployer",
@@ -73,7 +77,8 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "no"
+    "exclusionOn": "no",
+    "failureMessage": "Har ikke arbeidsgiver"
   },
   {
     "id": "InclusionSmartphone",
@@ -88,7 +93,8 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "no"
+    "exclusionOn": "no",
+    "failureMessage": "Har ikke smarttelefon"
   },
   {
     "id": "InclusionPregnancy",
@@ -103,7 +109,8 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "yes"
+    "exclusionOn": "yes",
+    "failureMessage": "Er gravid"
   },
   {
     "id": "InclusionSickleave",
@@ -118,6 +125,7 @@
         "label": "Nei"
       }
     ],
-    "exclusionOn": "yes"
+    "exclusionOn": "yes",
+    "failureMessage": "Planlegger å avslutte nåværende sykmelding neste uke"
   }
 ]
