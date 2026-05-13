@@ -111,21 +111,5 @@
     ],
     "exclusionOn": "yes",
     "failureMessage": "Er gravid"
-  },
-  {
-    "id": "InclusionSickleave",
-    "question": "Planlegger du å avslutte det nåværende sykefraværet innen utgangen av neste uke?",
-    "answers": [
-      {
-        "value": "yes",
-        "label": "Ja"
-      },
-      {
-        "value": "no",
-        "label": "Nei"
-      }
-    ],
-    "exclusionOn": "yes",
-    "failureMessage": "Planlegger å avslutte nåværende sykmelding neste uke"
   }
 ]

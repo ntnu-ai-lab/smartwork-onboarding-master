@@ -97,7 +97,7 @@ export class OnboardingStepperComponent implements OnInit {
       if (navId) {
         // Check if navId contains "G" or "g" and assign "gp"
         if (navId.toLowerCase().includes('g')) {
-        this.navID = "gp";
+        this.navID = navId.toLowerCase();
         }
         // Check if navId contains "N" or "n" and assign "nav"
         else if (navId.toLowerCase().includes('n')) {
@@ -224,7 +224,7 @@ export class OnboardingStepperComponent implements OnInit {
       (map, q) => (map[q.id] = this.formInclusion.get(q.id)?.value, map),
       {} as { [p: string]: any });
 
-    this.backend.sendEligibilityAnswers(answers)
+    this.backend.sendEligibilityAnswers(answers, this.navID ?? '')
       .pipe(catchError(err => {
         this.formInclusion.markAsUntouched();
         this.formInclusionCompleted = false;

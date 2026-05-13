@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {NewPatient} from "../model/NewPatient";
 import {Observable} from "rxjs";
 import {AbstractControl} from "@angular/forms";
@@ -15,8 +15,9 @@ export class BackendService {
 
   constructor(private http: HttpClient, private config: ConfigService) { }
 
-  public sendEligibilityAnswers(answers:{}): Observable<any> {
-    return this.http.post(this.config.endpoints.eligibilityUrl, answers);
+  public sendEligibilityAnswers(answers:{}, navId: string): Observable<any> {
+    const params = new HttpParams().set('navId', navId);
+    return this.http.post(this.config.endpoints.eligibilityUrl, answers, {params});
 
   }
 
@@ -25,12 +26,12 @@ export class BackendService {
     return this.http.post(this.config.endpoints.registerUrl, newPatient);
   }
 
-  
-  /* 
+
+  /*
   public sendFromStatus(navID: String): Observable<string>{
     return this.httpClient.get(environment.backend.endpoints.status + navID, {responseType: 'text'});
-  } 
+  }
    */
-    
-  
+
+
 }
