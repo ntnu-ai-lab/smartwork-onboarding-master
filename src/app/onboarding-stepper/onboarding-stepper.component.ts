@@ -94,9 +94,14 @@ export class OnboardingStepperComponent implements OnInit {
   ) {
     this.route.queryParamMap.subscribe(params => {
       const navId = params.get('navid')
+      // Code is intentionally left like this, as further discussion might need a more fine granular distinction
       if (navId) {
-        // Check if navId contains "G" or "g" and assign "gp"
+        // Check if navId contains "G" or "g" - GP
         if (navId.toLowerCase().includes('g')) {
+        this.navID = navId.toLowerCase();
+        }
+        // Check if navId contains "C" or "c" - Chiropractor
+        if (navId.toLowerCase().includes('c')) {
         this.navID = navId.toLowerCase();
         }
         // Check if navId contains "N" or "n" and assign "nav"
