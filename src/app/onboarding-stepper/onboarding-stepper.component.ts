@@ -96,26 +96,11 @@ export class OnboardingStepperComponent implements OnInit {
       const navId = params.get('navid')
       // Code is intentionally left like this, as further discussion might need a more fine granular distinction
       if (navId) {
-        // Check if navId contains "G" or "g" - GP
-        if (navId.toLowerCase().includes('g')) {
+        // NavID should either include G (GP), C (Chiropractor) or N (nav)
         this.navID = navId.toLowerCase();
-        }
-        // Check if navId contains "C" or "c" - Chiropractor
-        if (navId.toLowerCase().includes('c')) {
-        this.navID = navId.toLowerCase();
-        }
-        // Check if navId contains "N" or "n" and assign "nav"
-        else if (navId.toLowerCase().includes('n')) {
-        this.navID = "nav";
-        }
-        // Handle the case where navId is null or empty
-      else {
-      console.error('Error: navid is invalid');
-      this.navID = null;  // Or handle the error case as needed
+    } else {
+      alert (BAD_URL_IMS);
     }
-  } else {
-    alert (BAD_URL_IMS);
-  }
         });
 
     this.inclusionQuestions = inclusionQuestionsJson as InclusionQuestion[];
