@@ -33,7 +33,7 @@
   },
   {
     "id": "InclusionDoctor",
-    "question": "Har disse plagene vært vurdert av din fastlege eller annen lege?",
+    "question": "Har disse plagene vært vurdert av din fastlege eller annet helsepersonell?",
     "answers": [
       {
         "value": "yes",
